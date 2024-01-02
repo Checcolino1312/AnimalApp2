@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="items">Tipologia Utente</string-array>
-    <string-array name="sessoa">Sesso animale</string-array>
-    <string-array name="sterilizzazioneanimale">Sterilizzazione animale</string-array>
-    <string-array name="speciea">Specie animali</string-array>
-    <string-array name="statosalute">Stato salute</string-array>
+
 </resources>
