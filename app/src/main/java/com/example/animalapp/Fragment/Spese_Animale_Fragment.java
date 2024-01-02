@@ -173,7 +173,7 @@ public class Spese_Animale_Fragment extends Fragment {
                         holder.idAnimale=animale.id;
                         holder.idPadrone=animale.padrone;
                         holder.date = date.getText().toString();
-                        FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+                        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
                         reference = database.getReference().child("Spese").child(id);
                         reference.setValue(holder);
 

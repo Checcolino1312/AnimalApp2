@@ -46,7 +46,7 @@ public class Aggiungi_Animale extends Fragment {
     Spinner specieanimale, sterilizzazioneanima, sessoanim, statosaluteanim;
     EditText nomeAnimale, padrone, preferenzaCibo, eta, chip;
 
-    String imgPosition = "gs://provalogin-65cb5.appspot.com/logo.png";
+    String imgPosition = "gs://ioandroid-57364.appspot.com/AnimalApp-logos_transparent.png";
     FirebaseAuth auth;
     DatabaseReference reference;
     String userid, id;
@@ -215,7 +215,7 @@ public class Aggiungi_Animale extends Fragment {
         switch (spece){
             case "Cane":
                 immaginedacaricare.setImageResource(R.drawable.cane);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/cane.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/cane.png";
                 break;
             case "Gatto":
                 immaginedacaricare.setImageResource(R.drawable.gatto);
@@ -275,7 +275,7 @@ public class Aggiungi_Animale extends Fragment {
                 break;
             case "Dog":
                 immaginedacaricare.setImageResource(R.drawable.cane);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/cane.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/cane.png";
                 break;
             case "Cat":
                 immaginedacaricare.setImageResource(R.drawable.gatto);

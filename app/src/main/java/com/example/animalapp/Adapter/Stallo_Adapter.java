@@ -65,7 +65,7 @@ public class Stallo_Adapter extends RecyclerView.Adapter<Stallo_Adapter.AnimalVi
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 DatabaseReference reference;
-                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
                                 reference = database.getReference().child("Animals").child(animali.id).child("idStallo");
                                 reference.setValue("no Stallo");
                                 notifyItemRemoved(holder.getAdapterPosition());

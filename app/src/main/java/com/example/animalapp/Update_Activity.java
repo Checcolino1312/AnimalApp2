@@ -295,7 +295,7 @@ public class Update_Activity extends AppCompatActivity {
         img.idPadrone = animale.padrone;
 
         //caricamento
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
         reference = database.getReference().child("Image").child(img.id);
         reference.setValue(img);
         this.onBackPressed();

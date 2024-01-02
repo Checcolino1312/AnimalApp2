@@ -140,7 +140,7 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
         auth=FirebaseAuth.getInstance();
         userid = auth.getCurrentUser().getUid();
         id = Aggiungi_Animale.generacodiceid();
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
         reference = database.getReference().child("Segnalazioni").child(id);
 
     }

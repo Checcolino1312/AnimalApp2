@@ -138,7 +138,7 @@ public class Registrazione_Activity extends AppCompatActivity {
 
 
                     //REALTIME DATABASE
-                    FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
                     reference = database.getReference().child("Users").child(userid);
                     reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
