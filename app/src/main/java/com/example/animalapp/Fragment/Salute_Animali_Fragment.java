@@ -171,7 +171,7 @@ public class Salute_Animali_Fragment extends Fragment {
                         holder.idAnimale = animal.id;
                         holder.idPadrone = animal.padrone;
                         holder.date = date.getText().toString();
-                        FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+                        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
                         reference = database.getReference().child("Cure").child(id);
                         reference.setValue(holder);
                     }

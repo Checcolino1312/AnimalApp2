@@ -53,7 +53,7 @@ public class Spese_Adapter extends RecyclerView.Adapter<Spese_Adapter.SpeseViewH
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 DatabaseReference reference;
-                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/");
+                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
                                 reference = database.getReference().child("Spese").child(spesa.id);
                                 reference.removeValue();
                                 notifyItemRemoved(holder.getAdapterPosition());

@@ -134,7 +134,7 @@ public class Animali_Adapter extends RecyclerView.Adapter<Animali_Adapter.Animal
 
 
     private void isFollowing(String id, Button button){
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://provalogin-65cb5-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/").getReference()
                 .child("Follow").child(firebaseUser.getUid()).child("following");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
