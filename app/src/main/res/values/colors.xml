@@ -7,4 +7,5 @@
     <color name="colorSecondaryVariant">#675143</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#6b6be9</color>
 </resources>
