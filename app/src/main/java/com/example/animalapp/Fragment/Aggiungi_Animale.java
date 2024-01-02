@@ -219,7 +219,7 @@ public class Aggiungi_Animale extends Fragment {
                 break;
             case "Gatto":
                 immaginedacaricare.setImageResource(R.drawable.gatto);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/gatto.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/gatto.jpg";
                 break;
             case "Rana":
                 immaginedacaricare.setImageResource(R.drawable.rana);
