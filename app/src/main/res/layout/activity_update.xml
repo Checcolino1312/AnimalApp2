@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
+            android:backgroundTint="#03A9F4"
             android:text="@string/btnScegli" />
 
         <Button
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
+            android:backgroundTint="#03A9F4"
             android:text="@string/btnFaiFoto" />
 
 
@@ -48,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
+            android:backgroundTint="#03A9F4"
             android:text="@string/btnInvia" />
 
     </LinearLayout>

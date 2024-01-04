@@ -48,6 +48,7 @@
         android:layout_marginBottom="16dp"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
