@@ -16,6 +16,7 @@
         android:id="@+id/animali_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:padding="8dp">
 
 
@@ -25,7 +26,7 @@
             android:layout_height="80dp"
             android:layout_centerVertical="true"
             android:src="@mipmap/ic_launcher"
-            app:civ_border_color="#FF000000"
+            app:civ_border_color="@color/main_color"
             app:civ_border_width="2dp"
             android:contentDescription="@string/immagine" />
 
@@ -36,7 +37,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/img1"
             android:text="@string/nomeanimal"
-            android:textColor="#000"
+            android:textColor="@color/main_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -49,16 +50,17 @@
             android:layout_marginTop="15dp"
             android:layout_toEndOf="@+id/img1"
             android:text="@string/specie"
-            android:textColor="#000"
+            android:textColor="@color/main_color"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_follow"
-            android:backgroundTint="#03A9F4"
+            android:backgroundTint="@color/main_color"
             android:layout_width="166dp"
             android:layout_height="46dp"
             android:layout_alignTop="@+id/img1"
             android:layout_alignBottom="@+id/img1"
+            android:textColor="@color/white"
             android:text="@string/follow"
             android:layout_marginStart="184dp"
             android:layout_marginTop="11dp"

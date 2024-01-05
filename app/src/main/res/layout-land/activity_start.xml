@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".StartActivity">
+    tools:context=".Start_Activity">
     
     <ImageView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="#03A9F4"
+        android:backgroundTint="@color/main_color"
         android:text="@string/login" />
 
     <Button
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="#03A9F4"
+        android:backgroundTint="@color/main_color"
         android:text="@string/register" />
 
 
