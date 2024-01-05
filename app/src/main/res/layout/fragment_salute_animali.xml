@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#F8D89D"
     tools:context=".Fragment.Salute_Animali_Fragment">
 
     <TextView
@@ -15,9 +14,9 @@
         android:hint="@string/elencoCure"
         android:padding="14dp"
         android:textAlignment="center"
-        android:textColorHint="@color/colorSecondaryVariant"
+        android:textColorHint="#black"
 
-        android:textSize="28dp" />
+        android:textSize="28sp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,5 +33,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
+        android:backgroundTint="#03A9F4"
         android:text="@string/aggiungiCura" />
 </RelativeLayout>
