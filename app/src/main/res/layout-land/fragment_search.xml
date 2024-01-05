@@ -20,7 +20,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ABF8D89D">
+            android:background="@color/white">
 
             <ImageView
                 android:id="@+id/im"
@@ -34,12 +34,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:autofillHints=""
-            android:background="#ABF8D89D"
+            android:background="@color/white"
             android:hint="@string/cerca_i_tuoi_amici_"
             android:importantForAutofill="no"
             android:inputType="textShortMessage"
             android:minHeight="48dp"
-            android:textColorHint="#6D4C41" />
+            android:textColorHint="black" />
         </androidx.appcompat.widget.Toolbar>
 
 

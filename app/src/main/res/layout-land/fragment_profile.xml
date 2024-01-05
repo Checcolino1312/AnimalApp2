@@ -16,7 +16,7 @@
         android:fontFamily="@font/coustard"
         android:textAlignment="center"
         android:hint="@string/i_miei_animali"
-        android:textColorHint="@color/colorSecondaryVariant" />
+        android:textColorHint="@color/black" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="#65503F"
-            app:fab_addButtonColorNormal="#65503F">
+            android:backgroundTint="@color/white"
+            app:fab_addButtonColorNormal="@color/white">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/nuovomanuale"
