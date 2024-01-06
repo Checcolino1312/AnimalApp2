@@ -7,8 +7,6 @@
     tools:context=".Fragment.Scan_Fragment">
 
 
-
-
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_animal"
         android:layout_width="match_parent"
@@ -17,14 +15,13 @@
         app:autoFocusButtonVisible="true"
         app:flashButtonColor="#FFFFFF"
         app:flashButtonVisible="true"
-        app:frameColor="#FFFFFF"
-        app:frameCornersSize="50dp"
-        app:frameCornersRadius="0dp"
-        app:frameAspectRatioWidth="1"
         app:frameAspectRatioHeight="1"
+        app:frameAspectRatioWidth="1"
+        app:frameColor="#FFFFFF"
+        app:frameCornersRadius="0dp"
+        app:frameCornersSize="50dp"
         app:frameThickness="2dp"
-        app:maskColor="#F8D89D"
-        />
+        app:maskColor="@color/main_color" />
 
 
 </FrameLayout>

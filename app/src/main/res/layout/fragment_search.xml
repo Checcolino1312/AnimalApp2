@@ -14,7 +14,7 @@
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00FFFFFF">
+        android:background="#FFFFFF">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -26,19 +26,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/todo"
-                android:src="@drawable/ic_search" />
+                />
 
             <EditText
-            android:id="@+id/searchbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:autofillHints=""
-            android:hint="@string/cerca_i_tuoi_amici_"
-            android:importantForAutofill="no"
-            android:inputType="textShortMessage"
-            android:minHeight="48dp"
-            android:textColorHint="#black" />
+                android:id="@+id/searchbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:autofillHints=""
+                android:hint="@string/cerca_i_tuoi_amici_"
+                android:importantForAutofill="no"
+                android:inputType="textShortMessage"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/black" />
         </androidx.appcompat.widget.Toolbar>
 
 

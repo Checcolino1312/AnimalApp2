@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F8D89D"
+    android:background="#FFFFFF"
     tools:context=".Fragment.Home_Veterinario_Fragment">
 
 
@@ -16,19 +16,18 @@
         android:hint="@string/animaliInStallo"
         android:padding="14dp"
         android:textAlignment="center"
-        android:textColorHint="@color/colorSecondaryVariant"
+        android:textColorHint="@android:color/black"
         android:textSize="28dp" />
-
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_pet_stallo"
-        android:paddingTop="28dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
         android:layout_alignBaseline="@+id/animaliInStallo"
-        android:backgroundTint="#00FFFFFF" />
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:paddingTop="28dp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -39,10 +38,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#65503F"
+        android:backgroundTint="@color/main_color"
         android:contentDescription="@string/nuovaSegnalazione"
-        app:srcCompat="@mipmap/baseline_qr_code_scanner_black_24"
-        />
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
 
 </RelativeLayout>
