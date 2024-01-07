@@ -124,7 +124,7 @@
             android:text="@string/destinatari"
             android:layout_gravity="center"
             android:layout_marginBottom="6dp"
-            android:textSize="18dp"
+            android:textSize="18sp"
             />
 
         <LinearLayout

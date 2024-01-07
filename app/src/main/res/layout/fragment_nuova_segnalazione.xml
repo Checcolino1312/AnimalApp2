@@ -112,7 +112,7 @@
             android:backgroundTint="@color/main_color"
             android:clickable="true"
             android:text="@string/btn_check_position"
-            android:textColor="#FDF9F4" />
+            android:textColor="@color/white" />
 
 
 
@@ -122,7 +122,7 @@
             android:text="@string/destinatari"
             android:layout_gravity="center"
             android:layout_marginBottom="6dp"
-            android:textSize="18dp"
+            android:textSize="18sp"
             />
 
         <LinearLayout
@@ -171,7 +171,7 @@
             android:backgroundTint="@color/main_color"
             android:clickable="true"
             android:text="@string/invia_segnalazione"
-            android:textColor="#FDF9F4"
+            android:textColor="@color/white"
             android:focusable="true" />
 
     </LinearLayout>
