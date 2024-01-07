@@ -87,7 +87,7 @@
                         android:background="#00FFFFFF"
                         android:backgroundTint="#00FFFFFF"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-                        android:drawableTop="@drawable/ic_baseline_delete_forever2_24"
+                        android:drawableTop="@drawable/ic_baseline_delete"
                         android:textSize="12sp" />
 
                 </FrameLayout>
