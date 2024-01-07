@@ -27,20 +27,20 @@
                 android:id="@+id/im"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/ic_search" />
+                android:contentDescription="@string/todo" />
+
             <EditText
-            android:id="@+id/searchbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:autofillHints=""
-            android:background="@color/white"
-            android:hint="@string/cerca_i_tuoi_amici_"
-            android:importantForAutofill="no"
-            android:inputType="textShortMessage"
-            android:minHeight="48dp"
-            android:textColorHint="black" />
+                android:id="@+id/searchbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:autofillHints=""
+                android:background="@color/white"
+                android:hint="@string/cerca_i_tuoi_amici_"
+                android:importantForAutofill="no"
+                android:inputType="textShortMessage"
+                android:minHeight="48dp"
+                android:textColorHint="@color/black" />
         </androidx.appcompat.widget.Toolbar>
 
 

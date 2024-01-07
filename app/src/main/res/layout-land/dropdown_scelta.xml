@@ -6,7 +6,7 @@
     android:ellipsize="end"
     android:textColor="@color/black"
     android:fontFamily="@font/coustard"
-    android:background="@color/background"
+    android:background="@color/white"
     >
 
 </androidx.constraintlayout.widget.ConstraintLayout>
