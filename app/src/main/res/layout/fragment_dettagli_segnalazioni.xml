@@ -27,12 +27,10 @@
         <LinearLayout
             android:id="@+id/dettagli_segnalazioni"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="8dp"
             android:orientation="vertical">
 
-
-                
 
                 <ImageView
                     android:id="@+id/img_dettagli_segnalazioni"
@@ -148,7 +146,7 @@
                         android:backgroundTint="#03A9F4"
                         android:clickable="true"
                         android:text="MAPS"
-                        android:textColor="#FDF9F4" />
+                        android:textColor="@color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -45,8 +45,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/main_color"
         android:contentDescription="@string/nuovaSegnalazione"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-         />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
 
 </RelativeLayout>
