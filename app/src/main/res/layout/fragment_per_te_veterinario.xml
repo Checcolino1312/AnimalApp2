@@ -46,7 +46,8 @@
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/main_color"
         android:contentDescription="@string/nuovaSegnalazione"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+         />
 
 
 </RelativeLayout>
