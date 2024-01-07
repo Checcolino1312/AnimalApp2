@@ -64,9 +64,9 @@
         android:layout_marginBottom="7dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-        android:drawableTop="@drawable/ic_baseline_delete_forever2_24"
-        android:textSize="12sp" />
+        android:drawableTop="@drawable/baseline_delete"
+        android:textSize="12sp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </FrameLayout>
 
