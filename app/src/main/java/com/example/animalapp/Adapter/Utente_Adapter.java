@@ -67,8 +67,8 @@ public class Utente_Adapter extends RecyclerView.Adapter<Utente_Adapter.UtenteVi
             super(itemView);
 
             nomeanimale = itemView.findViewById(R.id.nome);
-            specieanimale = itemView.findViewById(R.id.specie);
-            image_profile = itemView.findViewById(R.id.image_profile);
+            specieanimale = itemView.findViewById(R.id.specie_animale);
+            image_profile = itemView.findViewById(R.id.imageAvatar);
             //btn_follow = itemView.findViewById(R.id.btn_follow);
 
 
