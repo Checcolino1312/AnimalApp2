@@ -6,13 +6,13 @@
     tools:context=".Activity.MainActivity">
     <item
         android:id="@+id/logout"
+        android:icon="@drawable/logout"
         android:title="logout"
-        android:icon="@drawable/ic_baseline_logout_24"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="profilo"
-        android:icon="@drawable/ic_profile"
         app:showAsAction="ifRoom" />
 
 </menu>
