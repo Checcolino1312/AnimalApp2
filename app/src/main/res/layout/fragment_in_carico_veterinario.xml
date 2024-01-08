@@ -8,21 +8,21 @@
 
     <TextView
         android:id="@+id/elencospese"
-        android:padding="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="28dp"
         android:fontFamily="@font/coustard"
-        android:textAlignment="center"
         android:hint="@string/segnalazioni_prese_in_carico"
-        android:textColorHint="@color/colorSecondaryVariant" />
+        android:padding="14dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:textSize="28dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_incarico"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/elencospese"
+        android:layout_alignBaseline="@id/elencospese"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF" />
 

@@ -468,7 +468,7 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
-                                    Toast.makeText(context, R.string.next, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, R.string.immagine_caricata, Toast.LENGTH_SHORT).show();
 
                                 }
                             })
