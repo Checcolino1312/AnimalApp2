@@ -34,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Veterinario_Fragment extends Fragment {
 
@@ -100,7 +101,7 @@ public class Veterinario_Fragment extends Fragment {
 
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        Query queryUtente = db.getReference("Users").orderByChild("Id").equalTo(auth.getCurrentUser().getUid());
+        Query queryUtente = db.getReference("Users").orderByChild("Id").equalTo(Objects.requireNonNull(auth.getCurrentUser()).getUid());
         queryUtente.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

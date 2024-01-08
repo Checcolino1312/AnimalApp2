@@ -25,19 +25,9 @@ public class Start_Activity extends AppCompatActivity {
         login=findViewById(R.id.login);
         register=findViewById(R.id.register);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Start_Activity.this,Login_Activity.class));
-            }
-        });
+        login.setOnClickListener(view -> startActivity(new Intent(Start_Activity.this,Login_Activity.class)));
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Start_Activity.this,Registrazione_Activity.class));
-            }
-        });
+        register.setOnClickListener(view -> startActivity(new Intent(Start_Activity.this,Registrazione_Activity.class)));
     }
 
     @Override
