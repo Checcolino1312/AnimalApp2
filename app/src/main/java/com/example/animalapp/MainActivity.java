@@ -117,37 +117,34 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.segnalazioni:
-                    selectedFragment= new Veterinario_Fragment();
-                    break;
-                case R.id.incarico_utente:
-                    selectedFragment= new InCarico_Fragment();
-                    break;
-                case R.id.ic_search:
-                    selectedFragment= new Cerca_Fragment();
-                    break;
-                case R.id.ic_favorites:
-                    selectedFragment= new Preferiti_Fragment();
-                    break;
-                case R.id.ic_profile:
-                    SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                    editor.putString("profileid", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                    editor.apply();
-                    selectedFragment= new Profilo_Fragment();
-                    break;
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = item -> {
+        switch (item.getItemId()){
+            case R.id.segnalazioni:
+                selectedFragment= new Veterinario_Fragment();
+                break;
+            case R.id.incarico_utente:
+                selectedFragment= new InCarico_Fragment();
+                break;
+            case R.id.ic_search:
+                selectedFragment= new Cerca_Fragment();
+                break;
+            case R.id.ic_favorites:
+                selectedFragment= new Preferiti_Fragment();
+                break;
+            case R.id.ic_profile:
+                SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                editor.putString("profileid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                editor.apply();
+                selectedFragment= new Profilo_Fragment();
+                break;
 
-            }
-            if( selectedFragment != null){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        selectedFragment).commit();
-            }
-
-            return true;
         }
+        if( selectedFragment != null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    selectedFragment).commit();
+        }
+
+        return true;
     };
 
 }

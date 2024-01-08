@@ -43,11 +43,7 @@ public class Immagine_Adapter extends RecyclerView.Adapter<Immagine_Adapter.Imag
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(holder.imageView.getContext())
-                        .load(uri)
-                        /*.placeholder(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark)
-                        .circleCrop()
-                        .error(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark_normal)*/
-                        .into(holder.imageView);
+                        .load(uri).into(holder.imageView);
             }
         });
     }

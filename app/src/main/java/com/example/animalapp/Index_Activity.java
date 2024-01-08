@@ -75,8 +75,6 @@ public class Index_Activity extends AppCompatActivity {
 
                 }
 
-
-
                 mRecyclerView.setAdapter(mAdapter);
             }
 
