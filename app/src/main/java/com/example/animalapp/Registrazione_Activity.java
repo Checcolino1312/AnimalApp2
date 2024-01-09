@@ -27,7 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 public class Registrazione_Activity extends AppCompatActivity {
-    EditText username,fullname, email, password,name;
+    EditText username, email, password,name;
     Button register;
     TextView txt_login;
 
@@ -52,9 +52,9 @@ public class Registrazione_Activity extends AppCompatActivity {
         tipologia.setAdapter(adapter);
 
         name = findViewById(R.id.firstName);
-        username=findViewById(R.id.lastName);
+
         username=findViewById(R.id.name);
-        
+
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         register=findViewById(R.id.register);
@@ -88,7 +88,7 @@ public class Registrazione_Activity extends AppCompatActivity {
 
                 String strName=username.getText().toString();
                 String strUsername=username.getText().toString();
-                String strFullname=fullname.getText().toString();
+
                 String strEmail=email.getText().toString();
                 String strPassword=password.getText().toString();
 
@@ -111,21 +111,18 @@ public class Registrazione_Activity extends AppCompatActivity {
                     username.setError("Cognome Richiesto!!");
                     System.out.println("sono nel quinto if");
                 }
-                else if(TextUtils.isEmpty(strFullname)){
-                    password.setError("Nome Richiesto!!");
-                    System.out.println("sono nel sesto if");
-                }
+
                 else if(password.length()<6){
                     password.setError("Password minimo 6 caratteri!!");
                     System.out.println("sono nel settimo if");
                 }else {
-                    register(typeuser,strName, strUsername,strFullname,strEmail,strPassword);
+                    register(typeuser,strName, strUsername,strEmail,strPassword);
                 }
             }
         });
     }
 
-    private void register(String typeuser,String mname , String musername, String mfullname, String memail, String mpassword){
+    private void register(String typeuser,String mname , String musername, String memail, String mpassword){
         auth.createUserWithEmailAndPassword(memail,mpassword).addOnCompleteListener(Registrazione_Activity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -139,7 +136,6 @@ public class Registrazione_Activity extends AppCompatActivity {
                     hashMap.put("TipoUtente", typeuser);
                     hashMap.put("Nickname",mname);
                     hashMap.put("Cognome",musername);
-                    hashMap.put("Nome",mfullname);
                     hashMap.put("ImgUrl", "gs://provalogin-65cb5.appspot.com/avatar.png");
                     hashMap.put("Email",memail);
                     hashMap.put("Password",mpassword);

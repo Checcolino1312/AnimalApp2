@@ -5,6 +5,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Recycler_Item_click_Listener implements RecyclerView.OnItemTouchListener {
@@ -27,7 +28,7 @@ public class Recycler_Item_click_Listener implements RecyclerView.OnItemTouchLis
             }
 
             @Override
-            public void onLongPress(MotionEvent e) {
+            public void onLongPress(@NonNull MotionEvent e) {
                 View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                 if (child != null && mListener != null) {
                     mListener.onLongItemClick(child, recyclerView.getChildAdapterPosition(child));
@@ -45,7 +46,7 @@ public class Recycler_Item_click_Listener implements RecyclerView.OnItemTouchLis
         return false;
     }
 
-    @Override public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) { }
+    @Override public void onTouchEvent(@NonNull RecyclerView view, @NonNull MotionEvent motionEvent) { }
 
     @Override
     public void onRequestDisallowInterceptTouchEvent (boolean disallowIntercept){}
