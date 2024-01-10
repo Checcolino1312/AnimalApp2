@@ -113,13 +113,10 @@ public class Home_Ente_Activity extends AppCompatActivity  {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("LOGOUT").setMessage("Vuoi Effettuare il logout?")
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            FirebaseAuth.getInstance().signOut();
-                            onBackPressed();
+                    .setPositiveButton("Si", (dialogInterface, i) -> {
+                        FirebaseAuth.getInstance().signOut();
+                        onBackPressed();
 
-                        }
                     })
                     .setNegativeButton("No", (dialog, which) -> {
 
