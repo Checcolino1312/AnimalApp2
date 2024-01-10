@@ -20,7 +20,6 @@ import java.util.List;
 public class Utente_Adapter extends RecyclerView.Adapter<Utente_Adapter.UtenteViewHolder> {
     final private Context mCtx;
     final private List<Utente> utenteList;
-    private FirebaseUser firebaseUser;
 
     public Utente_Adapter(Context mCtx, List<Utente> utenteList){
         this.mCtx = mCtx;
@@ -38,15 +37,6 @@ public class Utente_Adapter extends RecyclerView.Adapter<Utente_Adapter.UtenteVi
 
     @Override
     public void onBindViewHolder(@NonNull UtenteViewHolder holder, int position) {
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        //StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.ImgUrl);
-        //storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            /*@Override
-            public void onSuccess(Uri uri) {
-                Glide.with(mCtx).load(uri).into(holder.image_profile);
-            }
-        });*/
 
 
     }

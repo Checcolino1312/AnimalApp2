@@ -43,28 +43,17 @@ public class Cure_Adapter extends RecyclerView.Adapter<Cure_Adapter.CureViewHold
         holder.nameView.setText(cure.cura);
         holder.prezzoSpesa.setText(cure.prezzo);
         holder.dataSpesa.setText(cure.date);
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(holder.delete.getContext())
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("ELIMINAZIONE CURA").setMessage("Sei sicuro di voler eliminare?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                DatabaseReference reference;
-                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
-                                reference = database.getReference().child("Cure").child(cure.id);
-                                reference.removeValue();
-                                notifyItemRemoved(holder.getAdapterPosition());
+        holder.delete.setOnClickListener(v -> new AlertDialog.Builder(holder.delete.getContext())
+                .setIcon(android.R.drawable.ic_dialog_alert).setTitle("ELIMINAZIONE CURA").setMessage("Sei sicuro di voler eliminare?").setPositiveButton("Si", (dialogInterface, i) -> {
+                    DatabaseReference reference;
+                    FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
+                    reference = database.getReference().child("Cure").child(cure.id);
+                    reference.removeValue();
+                    notifyItemRemoved(holder.getAdapterPosition());
 
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
-
-            }
-        });
+                })
+                .setNegativeButton("No", null)
+                .show());
 
     }
 

@@ -55,17 +55,8 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
         trovaNomeCognomeUtente(segnalazioni.idMittente, holder.mittente);
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
-        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(holder.img.getContext())
-                        .load(uri).circleCrop()
-                        /*.placeholder(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark)
-                        .circleCrop()
-                        .error(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark_normal)*/
-                        .into(holder.img);
-            }
-        });
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
+                .load(uri).circleCrop().into(holder.img));
 
     }
 
@@ -73,8 +64,6 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
     public int getItemCount() {
         return segnalazioniList.size();
     }
-
-
 
 
     static class SegnalazioniViewHolder extends RecyclerView.ViewHolder{
@@ -108,7 +97,7 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         };

@@ -49,16 +49,13 @@ public class Spese_Adapter extends RecyclerView.Adapter<Spese_Adapter.SpeseViewH
                 new AlertDialog.Builder(holder.delete.getContext())
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("ELIMINAZIONE SPESA").setMessage("Sei sicuro di voler eliminare?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                DatabaseReference reference;
-                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
-                                reference = database.getReference().child("Spese").child(spesa.id);
-                                reference.removeValue();
-                                notifyItemRemoved(holder.getAdapterPosition());
+                        .setPositiveButton("Si", (dialogInterface, i) -> {
+                            DatabaseReference reference;
+                            FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
+                            reference = database.getReference().child("Spese").child(spesa.id);
+                            reference.removeValue();
+                            notifyItemRemoved(holder.getAdapterPosition());
 
-                            }
                         })
                         .setNegativeButton("No", null)
                         .show();

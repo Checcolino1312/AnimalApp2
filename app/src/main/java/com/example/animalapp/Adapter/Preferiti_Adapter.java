@@ -59,24 +59,12 @@ public class Preferiti_Adapter extends RecyclerView.Adapter<Preferiti_Adapter.Pr
 
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("Animals").child(f.id).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                animal = task.getResult().getValue(Animali.class);
+        reference.child("Animals").child(f.id).get().addOnCompleteListener(task -> {
+            animal = task.getResult().getValue(Animali.class);
 
-                StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
-                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(holder.immagine.getContext())
-                                .load(uri).circleCrop()
-                                /*.placeholder(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark)
-                                .circleCrop()
-                                .error(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark_normal)*/
-                                .into(holder.immagine);
-                    }
-                });
-            }
+            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.immagine.getContext())
+                    .load(uri).circleCrop().into(holder.immagine));
         });
 
         holder.nomeAnimale.setText(f.nome);

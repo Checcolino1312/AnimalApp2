@@ -55,43 +55,25 @@ public class Stallo_Adapter extends RecyclerView.Adapter<Stallo_Adapter.AnimalVi
 
         holder.nome_item.setText(animali.nomeAnimale);
         holder.specie_item.setText(animali.specie);
-        holder.btn_cancella.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(holder.btn_cancella.getContext())
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("ELIMINAZIONE STALLO").setMessage("Sei sicuro di voler eliminare?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                DatabaseReference reference;
-                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
-                                reference = database.getReference().child("Animals").child(animali.id).child("idStallo");
-                                reference.setValue("no Stallo");
-                                notifyItemRemoved(holder.getAdapterPosition());
+        holder.btn_cancella.setOnClickListener(view -> new AlertDialog.Builder(holder.btn_cancella.getContext())
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("ELIMINAZIONE STALLO").setMessage("Sei sicuro di voler eliminare?")
+                .setPositiveButton("Si", (dialogInterface, i) -> {
+                    DatabaseReference reference;
+                    FirebaseDatabase database = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/");
+                    reference = database.getReference().child("Animals").child(animali.id).child("idStallo");
+                    reference.setValue("no Stallo");
+                    notifyItemRemoved(holder.getAdapterPosition());
 
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
-            }
-
-        });
+                })
+                .setNegativeButton("No", null)
+                .show());
 
 
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animali.imgAnimale);
-        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(holder.img.getContext())
-                        .load(uri)
-                        /*.placeholder(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark)
-                        .circleCrop()
-                        .error(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark_normal)*/
-                        .into(holder.img);
-            }
-        });
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
+                .load(uri).into(holder.img));
 
     }
 

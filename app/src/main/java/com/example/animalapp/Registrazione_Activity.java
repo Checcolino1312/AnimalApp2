@@ -52,9 +52,7 @@ public class Registrazione_Activity extends AppCompatActivity {
         tipologia.setAdapter(adapter);
 
         name = findViewById(R.id.firstName);
-
         username=findViewById(R.id.name);
-
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         register=findViewById(R.id.register);

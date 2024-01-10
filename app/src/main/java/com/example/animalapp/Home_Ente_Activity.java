@@ -57,31 +57,28 @@ public class Home_Ente_Activity extends AppCompatActivity  {
     }
 
 
-    private  BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.homeEnte:
-                    selectedFragment= new Animali_Veterinario_Fragment();
-                    break;
-                case R.id.inCarico:
-                    selectedFragment= new InCarico_Fragment();
-                    break;
-                case R.id.petsEnte:
-                    selectedFragment= new Animali_Veterinario_Fragment();
-                    break;
-                case R.id.profileEnte:
-                    selectedFragment= new Profilo_Fragment();
-                    break;
-            }
-            if( selectedFragment != null){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        selectedFragment).commit();
-            }
-
-
-            return true;
+    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = item -> {
+        switch (item.getItemId()){
+            case R.id.homeEnte:
+                selectedFragment= new Animali_Veterinario_Fragment();
+                break;
+            case R.id.inCarico:
+                selectedFragment= new InCarico_Fragment();
+                break;
+            case R.id.petsEnte:
+                selectedFragment= new Animali_Veterinario_Fragment();
+                break;
+            case R.id.profileEnte:
+                selectedFragment= new Profilo_Fragment();
+                break;
         }
+        if( selectedFragment != null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    selectedFragment).commit();
+        }
+
+
+        return true;
     };
 
     @Override
@@ -124,11 +121,8 @@ public class Home_Ente_Activity extends AppCompatActivity  {
 
                         }
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                    .setNegativeButton("No", (dialog, which) -> {
 
-                        }
                     })
                     .show();
         }

@@ -39,13 +39,7 @@ public class Immagine_Adapter extends RecyclerView.Adapter<Immagine_Adapter.Imag
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Immagine img = mImages.get(position);
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(img.imgPosition);
-        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(holder.imageView.getContext())
-                        .load(uri).into(holder.imageView);
-            }
-        });
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.imageView.getContext()).load(uri).into(holder.imageView));
     }
 
     @Override

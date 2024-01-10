@@ -72,40 +72,26 @@ public class Animali_Adapter extends RecyclerView.Adapter<Animali_Adapter.Animal
 
         //following tiene traccia degli animali che l'utente sta seguendo
         //followers tiene traccia degli utenti che seguono l'animale
-        holder.btn_follow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(holder.btn_follow.getText().toString().equals("Follow")){
+        holder.btn_follow.setOnClickListener(view -> {
+            if(holder.btn_follow.getText().toString().equals("Follow")){
 
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(animali.id).child("id").setValue(animali.id);
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(animali.id).child("nome").setValue(animali.nomeAnimale);
+                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(animali.id).child("id").setValue(animali.id);
+                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(animali.id).child("nome").setValue(animali.nomeAnimale);
 
-                } else {
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(animali.id).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(animali.id).child("nome").removeValue();
+            } else {
+                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(animali.id).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(animali.id).child("nome").removeValue();
 
-                }
             }
         });
-
-
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animali.imgAnimale);
-        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(holder.img.getContext())
-                        .load(uri)
-                        /*.placeholder(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark)
-                        .circleCrop()
-                        .error(com.firebase.ui.storage.R.drawable.common_google_signin_btn_icon_dark_normal)*/
-                        .into(holder.img);
-            }
-        });
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
+                .load(uri).into(holder.img));
 
     }
 
@@ -113,8 +99,6 @@ public class Animali_Adapter extends RecyclerView.Adapter<Animali_Adapter.Animal
     public int getItemCount() {
         return animalList.size();
     }
-
-
 
 
     static class AnimalViewHolder extends RecyclerView.ViewHolder{
