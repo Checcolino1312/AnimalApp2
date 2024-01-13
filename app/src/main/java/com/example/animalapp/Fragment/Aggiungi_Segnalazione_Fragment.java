@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -309,13 +310,30 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
 
         hashMap = new Segnalazioni();
         hashMap.imgSegnalazione = imgPosition;
-        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(hashMap.imgSegnalazione);
-        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(hashMap.imgSegnalazione);
+            // Continua con le operazioni desiderate utilizzando storageReference...
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            Log.e("StorageReferenceError", "Errore nel recupero della StorageReference: " + e.getMessage());
+            // Gestisci l'eccezione come preferisci.
+        }
+
+        // Sostituisci "path_del_tuo_oggetto" con il percorso reale del tuo oggetto nel bucket
+        StorageReference specificReference = storageReference.child("gs://ioandroid-57364.appspot.com/images/");
+
+        specificReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context).load(uri).into(imgSegnalazione);
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Gestisci eventuali errori
+            }
         });
+
 
 
 
@@ -447,53 +465,45 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
     private void uploadImage() {
         if (filePathSegnalazione != null) {
             // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog = new ProgressDialog(context);progressDialog.setTitle("Uploading...");
+            ProgressDialog progressDialog = new ProgressDialog(context);
+            progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             // Defining the child of storageReference
             String random = UUID.randomUUID().toString();
-            StorageReference ref = storageReference.child("images/" + random);
-            imgPosition = "gs://provalogin-65cb5.appspot.com/images/" + random;
-
+            String storagePath = "images/" + random;
+            StorageReference ref = storageReference.child(storagePath);
+            imgPosition = "gs://ioandroid-57364.appspot.com/" + storagePath;
 
             // adding listeners on upload
             // or failure of image
-            ref.putFile(filePathSegnalazione).addOnSuccessListener(
-                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
-
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
-                                    progressDialog.dismiss();
-                                    Toast.makeText(context, R.string.immagine_caricata, Toast.LENGTH_SHORT).show();
-
-                                }
-                            })
-
+            ref.putFile(filePathSegnalazione)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // Image uploaded successfully
+                            // Dismiss dialog
+                            progressDialog.dismiss();
+                            Toast.makeText(context, R.string.immagine_caricata, Toast.LENGTH_SHORT).show();
+                        }
+                    })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
                             // Error, Image not uploaded
                             progressDialog.dismiss();
                             Toast.makeText(context, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
-                                    double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());progressDialog.setMessage("Uploaded " + (int) progress + "%");
-                                }
-                            });
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        }
+                    });
         }
     }
+
 
 }
