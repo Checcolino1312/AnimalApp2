@@ -136,7 +136,7 @@ public class Registrazione_Activity extends AppCompatActivity {
                     hashMap.put("TipoUtente", typeuser);
                     hashMap.put("Nickname",mname);
                     hashMap.put("Cognome",musername);
-                    hashMap.put("ImgUrl", "gs://provalogin-65cb5.appspot.com/avatar.png");
+                    hashMap.put("ImgUrl", "gs://ioandroid-57364.appspot.com/");
                     hashMap.put("Email",memail);
                     hashMap.put("Password",mpassword);
 

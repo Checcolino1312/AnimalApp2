@@ -164,7 +164,7 @@ public class Update_Activity extends AppCompatActivity {
             String random = UUID.randomUUID().toString();
             StorageReference ref = storageReference.child("images/" + random);
 
-            imgPosition = "gs://provalogin-65cb5.appspot.com/images/" + random;
+            imgPosition = "gs://ioandroid-57364.appspot.com/images/" + random;
             posizione = getIntent().getStringExtra("Posizione");
 
             // adding listeners on upload

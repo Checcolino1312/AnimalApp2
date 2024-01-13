@@ -214,7 +214,7 @@ public class Aggiungi_Animale extends Fragment {
     public void defImg(String spece){
         switch (spece){
             case "Cane": immaginedacaricare.setImageResource(R.drawable.foca);
-                imgPosition ="gs://ioandroid-57364.appspot.com/cane.png";
+                imgPosition ="gs://ioandroid-57364.appspot.com/images/foca.png";
                 break;
             case "Gatto":
                 immaginedacaricare.setImageResource(R.drawable.gatto);
@@ -222,107 +222,107 @@ public class Aggiungi_Animale extends Fragment {
                 break;
             case "Rana":
                 immaginedacaricare.setImageResource(R.drawable.rana);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/rana.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/rana.jpg";
                 break;
             case "Anatra":
                 immaginedacaricare.setImageResource(R.drawable.anatra);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/anatra.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/anatra.jpg";
                 break;
             case "Usignolo":
                 immaginedacaricare.setImageResource(R.drawable.usignolo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/usignolo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/usignolo.jpg";
                 break;
             case "Pulcino":
                 immaginedacaricare.setImageResource(R.drawable.pulcino);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/pulcino.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/pulcino.jpg";
                 break;
             case "Lupo":
                 immaginedacaricare.setImageResource(R.drawable.lupo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/lupo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/lupo.jpg";
                 break;
             case "Volpe":
                 immaginedacaricare.setImageResource(R.drawable.volpe);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/volpe.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/volpe.jpg";
                 break;
             case "Zebra":
                 immaginedacaricare.setImageResource(R.drawable.zebra);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/zebra.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/zebra.jpg";
                 break;
             case "Coccodrillo":
                 immaginedacaricare.setImageResource(R.drawable.coccodrillo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/coccodrillo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/coccodrillo.jpg";
                 break;
             case "Tartaruga":
                 immaginedacaricare.setImageResource(R.drawable.tartaruga);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/tartaruga.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/tartaruga.jpg";
                 break;
             case "Pappagallo":
                 immaginedacaricare.setImageResource(R.drawable.pappagallo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/pappagallo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/pappagallo.jpg";
                 break;
             case "Iguana":
                 immaginedacaricare.setImageResource(R.drawable.iguana);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/iguana.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/iguana.jpg";
                 break;
             case "Fenicottero-rosa":
                 immaginedacaricare.setImageResource(R.drawable.fenicottero);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/fenicottero.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/fenicottero.jpg";
                 break;
             case "Foca Monaca":
                 immaginedacaricare.setImageResource(R.drawable.foca);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/foca.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/foca.jpg";
                 break;
             case "Dog":
                 immaginedacaricare.setImageResource(R.drawable.foca);
-                imgPosition ="gs://ioandroid-57364.appspot.com/cane.png";
+                imgPosition ="gs://ioandroid-57364.appspot.com/foca.png";
                 break;
             case "Cat":
                 immaginedacaricare.setImageResource(R.drawable.gatto);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/gatto.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/cat.jpg";
                 break;
             case "Frog":
                 immaginedacaricare.setImageResource(R.drawable.rana);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/rana.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/frog.jpg";
                 break;
             case "Duck":
                 immaginedacaricare.setImageResource(R.drawable.anatra);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/anatra.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/duck.jpg";
                 break;
             case "Nightongale":
                 immaginedacaricare.setImageResource(R.drawable.usignolo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/usignolo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/nightongale.jpg";
                 break;
             case "Chick":
                 immaginedacaricare.setImageResource(R.drawable.pulcino);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/pulcino.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/chick.jpg";
                 break;
             case "Woolf":
                 immaginedacaricare.setImageResource(R.drawable.lupo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/lupo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/woolf.jpg";
                 break;
             case "Fox":
                 immaginedacaricare.setImageResource(R.drawable.volpe);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/volpe.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/fox.jpg";
                 break;
             case "Crocodile":
                 immaginedacaricare.setImageResource(R.drawable.coccodrillo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/coccodrillo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/cocodrile.jpg";
                 break;
             case "Turtle":
                 immaginedacaricare.setImageResource(R.drawable.tartaruga);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/tartaruga.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/tartaruga.jpg";
                 break;
             case "Parot":
                 immaginedacaricare.setImageResource(R.drawable.pappagallo);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/pappagallo.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/pappagallo.jpg";
                 break;
             case "Pink-Flamingo":
                 immaginedacaricare.setImageResource(R.drawable.fenicottero);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/fenicottero.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/fenicottero.jpg";
                 break;
             case "Monk Seal":
                 immaginedacaricare.setImageResource(R.drawable.foca);
-                imgPosition ="gs://provalogin-65cb5.appspot.com/Animal/foca.jpg";
+                imgPosition ="gs://ioandroid-57364.appspot.com/foca.jpg";
                 break;
         }
     }
