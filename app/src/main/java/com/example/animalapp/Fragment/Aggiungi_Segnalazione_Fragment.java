@@ -91,7 +91,7 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
 
     String id;
     Uri filePathSegnalazione;
-    String imgPosition = "gs://provalogin-65cb5.appspot.com/logo.png";
+    String imgPosition = "@drawable/logo";
 
     EditText descrizione;
 
