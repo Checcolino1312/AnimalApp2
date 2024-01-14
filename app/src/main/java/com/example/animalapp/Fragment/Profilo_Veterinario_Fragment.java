@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -168,18 +169,25 @@ public class Profilo_Veterinario_Fragment extends Fragment {
 
     public void showUserData(){
 
+        Log.d("verifica", nUser.toString());
         String nameUser = nUser.get(0).Nome;
         String emailUser = nUser.get(0).Email;
         String usernameUser = nUser.get(0).Cognome;
         String passwordUser = nUser.get(0).Password;
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(nUser.get(0).ImgUrl);
+
+
+
+
+
+
+/*        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(nUser.get(0).ImgUrl);
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context).load(uri).into(profileImg);
             }
-        });
+        });*/
 
         titleName.setText(nameUser+" "+usernameUser);
         titleUsername.setText(emailUser);
@@ -187,6 +195,7 @@ public class Profilo_Veterinario_Fragment extends Fragment {
         profileEmailVeterinario.setText(emailUser);
         profileUsernameVeterinario.setText(usernameUser);
         profilePasswordVeterinario.setText(passwordUser);
+
 
     }
 

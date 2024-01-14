@@ -114,9 +114,9 @@ public class Modifica_Profilo_Veterinario_Fragment extends Fragment {
 
     public boolean isChanged(){
         boolean tmp = false;
-        if(!nomeUser.equals(editNome.getText().toString())){
+       if(!nomeUser.equals(editNome.getText().toString())){
 
-            reference.child("Users").child(userId).child("Nome").setValue(editNome.getText().toString());
+            reference.child("Users").child(userId).child("Nickname").setValue(editNome.getText().toString());
             nomeUser = editNome.getText().toString();
             tmp = true;
         }

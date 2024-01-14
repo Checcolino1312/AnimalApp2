@@ -104,7 +104,7 @@ public class Home_Ente_Activity extends AppCompatActivity  {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.profile) {
+        if (id == R.id.profilo) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new Animali_Veterinario_Fragment()).addToBackStack(null).commit();
             return true;

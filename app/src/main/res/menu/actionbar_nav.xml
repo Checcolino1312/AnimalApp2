@@ -9,10 +9,10 @@
         android:icon="@drawable/logout"
         android:title="logout"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/profile"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="profilo"
-        app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/profilo"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/profilo"
+        app:showAsAction="ifRoom" />
 </menu>

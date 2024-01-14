@@ -86,7 +86,7 @@ public class Registrazione_Activity extends AppCompatActivity {
 
                 String typeuser = tipologia.getSelectedItem().toString();
 
-                String strName=username.getText().toString();
+                String strName=name.getText().toString();
                 String strUsername=username.getText().toString();
 
                 String strEmail=email.getText().toString();
@@ -134,9 +134,9 @@ public class Registrazione_Activity extends AppCompatActivity {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("Id",userid);
                     hashMap.put("TipoUtente", typeuser);
-                    hashMap.put("Nickname",mname);
-                    hashMap.put("Cognome",musername);
-                    hashMap.put("ImgUrl", "gs://ioandroid-57364.appspot.com/");
+                    hashMap.put("Nickname",musername);
+                    hashMap.put("Nome e Cognome",mname);
+                    hashMap.put("ImgUrl", "gs://ioandroid-57364.appspot.com/images/circleako.png");
                     hashMap.put("Email",memail);
                     hashMap.put("Password",mpassword);
 

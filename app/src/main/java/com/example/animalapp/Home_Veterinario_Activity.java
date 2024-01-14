@@ -15,6 +15,7 @@ import com.example.animalapp.Fragment.InCarico_Fragment;
 
 
 import com.example.animalapp.Fragment.Profilo_Fragment;
+import com.example.animalapp.Fragment.Profilo_Veterinario_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -97,9 +98,9 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.profile) {
+        if (id == R.id.profilo) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new Profilo_Fragment()).addToBackStack(null).commit();
+                    new Profilo_Veterinario_Fragment()).addToBackStack(null).commit();
             return true;
         }
         if (id == R.id.logout){
