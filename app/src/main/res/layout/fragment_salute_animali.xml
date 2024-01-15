@@ -12,7 +12,7 @@
         android:id="@+id/elencoCure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
         android:hint="@string/elencoCure"
         android:padding="14dp"
         android:textAlignment="center"
@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/aggiungiCura"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/main_color"
         android:text="@string/aggiungiCura"
         android:visibility="visible" />
