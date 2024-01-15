@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/homeVet"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/icon_segnalazioni"
         android:title="@string/homeVet" />
 
     <item
