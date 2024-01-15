@@ -18,7 +18,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -116,7 +117,7 @@
                 android:fontFamily="@font/coustard"
                 android:text="@string/nome_animale"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -168,8 +169,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/main_color"
             android:contentDescription="@string/nuovaSegnalazione"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
