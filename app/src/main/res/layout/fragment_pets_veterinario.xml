@@ -43,4 +43,6 @@
         app:srcCompat="@mipmap/baseline_qr_code_scanner_black_24" />
 
 
+
+
 </RelativeLayout>

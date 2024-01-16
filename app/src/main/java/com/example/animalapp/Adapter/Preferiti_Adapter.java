@@ -62,9 +62,11 @@ public class Preferiti_Adapter extends RecyclerView.Adapter<Preferiti_Adapter.Pr
         reference.child("Animals").child(f.id).get().addOnCompleteListener(task -> {
             animal = task.getResult().getValue(Animali.class);
 
-            StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
+           /* StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
             storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.immagine.getContext())
                     .load(uri).circleCrop().into(holder.immagine));
+
+            */
         });
 
         holder.nomeAnimale.setText(f.nome);

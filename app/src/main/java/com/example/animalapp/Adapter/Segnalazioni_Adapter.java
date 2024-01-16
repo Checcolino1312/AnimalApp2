@@ -54,9 +54,11 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
         holder.tipologiaSegnalazione.setText(segnalazioni.tipologiaSegnalazione);
         trovaNomeCognomeUtente(segnalazioni.idMittente, holder.mittente);
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
+      /*  StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
                 .load(uri).circleCrop().into(holder.img));
+
+       */
 
     }
 

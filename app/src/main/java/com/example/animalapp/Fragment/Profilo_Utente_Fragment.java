@@ -19,14 +19,14 @@ import com.example.animalapp.R;
 public class Profilo_Utente_Fragment extends Fragment {
 
 
-    TextView ciaoutente;
+    TextView utente;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile_user, container, false);
-        ciaoutente = view.findViewById(R.id.ciaoutente);
+        utente = view.findViewById(R.id.ciaoutente);
         return view;
     }
 
