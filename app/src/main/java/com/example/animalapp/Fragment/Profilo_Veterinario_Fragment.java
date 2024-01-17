@@ -128,7 +128,7 @@ public class Profilo_Veterinario_Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile_veterinario, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile_user, container, false);
 
 
         Activity activity = getActivity();

@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.animalapp.Fragment.Animali_Veterinario_Fragment;
 
+import com.example.animalapp.Fragment.Home_Ente_Fragment;
+import com.example.animalapp.Fragment.Profilo_Ente_Fragment;
 import com.example.animalapp.R;
 import com.example.animalapp.Fragment.InCarico_Fragment;
 import com.example.animalapp.Fragment.Profilo_Fragment;
@@ -106,7 +108,7 @@ public class Home_Ente_Activity extends AppCompatActivity  {
         int id = item.getItemId();
         if (id == R.id.profilo) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new Animali_Veterinario_Fragment()).addToBackStack(null).commit();
+                    new Profilo_Ente_Fragment()).addToBackStack(null).commit();
             return true;
         }
         if (id == R.id.logout){

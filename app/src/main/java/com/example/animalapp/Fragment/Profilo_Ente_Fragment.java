@@ -43,7 +43,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Profilo_Utente_Fragment extends Fragment {
+public class Profilo_Ente_Fragment extends Fragment {
 
     private Context context;
 
@@ -59,7 +59,7 @@ public class Profilo_Utente_Fragment extends Fragment {
     Query query;
     private List<Utente> nUser = new ArrayList<Utente>();
     ImageView profileImg;
-    TextView profileNameUtente, profileEmailUtente, profileUsernameUtente,profilePasswordUtente;
+    TextView profileNameEnte, profileEmailEnte, profileUsernameEnte,profilePasswordEnte;
     TextView titleName, titleUsername;
 
     Button modificaProfilo;
@@ -140,10 +140,10 @@ public class Profilo_Utente_Fragment extends Fragment {
             ((MainActivity) activity).setCustomBackEnabled(false);
         }
 
-        profileNameUtente = view.findViewById(R.id.profileName);
-        profileEmailUtente= view.findViewById(R.id.profileEmail);
-        profileUsernameUtente = view.findViewById(R.id.profileUsername);
-        profilePasswordUtente = view.findViewById(R.id.profilePassword);
+        profileNameEnte = view.findViewById(R.id.profileName);
+        profileEmailEnte= view.findViewById(R.id.profileEmail);
+        profileUsernameEnte = view.findViewById(R.id.profileUsername);
+        profilePasswordEnte = view.findViewById(R.id.profilePassword);
         titleName = view.findViewById(R.id.titleName);
         titleUsername = view.findViewById(R.id.titleUsername);
         profileImg= view.findViewById(R.id.profileImg);
@@ -155,7 +155,7 @@ public class Profilo_Utente_Fragment extends Fragment {
             public void onClick(View v) {
 
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new Modifica_Profilo_Utente_Fragment(nUser.get(0))).addToBackStack(null).commit();
+                        .replace(R.id.fragment_container, new Modifica_Profilo_Ente_Fragment(nUser.get(0))).addToBackStack(null).commit();
             }
         });
 
@@ -191,10 +191,10 @@ public class Profilo_Utente_Fragment extends Fragment {
 
         titleName.setText(nameUser+" "+usernameUser);
         titleUsername.setText(emailUser);
-        profileNameUtente.setText(nameUser);
-        profileEmailUtente.setText(emailUser);
-        profileUsernameUtente.setText(usernameUser);
-        profilePasswordUtente.setText(passwordUser);
+        profileNameEnte.setText(nameUser);
+        profileEmailEnte.setText(emailUser);
+        profileUsernameEnte.setText(usernameUser);
+        profilePasswordEnte.setText(passwordUser);
 
 
     }
