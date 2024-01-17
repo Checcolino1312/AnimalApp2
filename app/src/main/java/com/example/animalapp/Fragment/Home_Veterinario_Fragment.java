@@ -27,12 +27,10 @@ public class Home_Veterinario_Fragment extends Fragment {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_home_veterinario, container, false);
         tabLayoutVeterinario  = view.findViewById(R.id.tab_layout_veterinario);
         viewPager2Veterinario = view.findViewById(R.id.view_pager_veterinario);
@@ -63,7 +61,6 @@ public class Home_Veterinario_Fragment extends Fragment {
                 tabLayoutVeterinario.getTabAt(position).select();
             }
         });
-        return view; // Restituisci la vista inflata correttamente.
+        return inflater.inflate(R.layout.fragment_home_veterinario, container, false);
     }
-
 }

@@ -48,7 +48,7 @@ public class Segnalazioni_Fragment extends Fragment {
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
 
-  Segnalazioni_Fragment(){
+    Segnalazioni_Fragment(){
 
     }
 
@@ -100,13 +100,13 @@ public class Segnalazioni_Fragment extends Fragment {
             cbUtente.setChecked(true);
         }
 
-      /*  StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(imgSegnalzioni.getContext()).load(uri).circleCrop().into(imgSegnalzioni);
             }
-        });*/
+        });
 
        */
 

@@ -2,16 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/segnalazionevet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Fragment.Veterinario_Fragment">
 
     <FrameLayout
-        android:id="@+id/fragment_container_per_te"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container_per_te"/>
 
     <TextView
         android:id="@+id/elencospese"
@@ -25,28 +24,30 @@
         android:textSize="28sp" />
 
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_veterinario"
+        android:paddingTop="28dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/elencospese"
         android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:paddingTop="28dp" />
+        android:layout_alignBaseline="@+id/elencospese"
+        android:backgroundTint="#00FFFFFF" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_nuova_segnalazione"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:backgroundTint="@color/main_color"
         android:contentDescription="@string/nuovaSegnalazione"
-        android:textColor="@color/white"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        />
 
 
 </RelativeLayout>

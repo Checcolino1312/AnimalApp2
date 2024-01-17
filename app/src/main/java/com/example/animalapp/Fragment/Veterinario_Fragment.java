@@ -75,7 +75,6 @@ public class Veterinario_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_per_te_veterinario, container, false);
         Activity activity = getActivity();
         if (activity instanceof Home_Veterinario_Activity) {
