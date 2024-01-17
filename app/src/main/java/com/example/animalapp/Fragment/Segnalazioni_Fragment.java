@@ -106,7 +106,7 @@ public class Segnalazioni_Fragment extends Fragment {
             public void onSuccess(Uri uri) {
                 Glide.with(imgSegnalzioni.getContext()).load(uri).circleCrop().into(imgSegnalzioni);
             }
-        });
+        });*/
 
        */
 
