@@ -8,6 +8,7 @@ import com.example.animalapp.Fragment.Cerca_Fragment;
 import com.example.animalapp.Fragment.InCarico_Fragment;
 import com.example.animalapp.Fragment.Preferiti_Fragment;
 import com.example.animalapp.Fragment.Profilo_Fragment;
+import com.example.animalapp.Fragment.Profilo_Utente_Fragment;
 import com.example.animalapp.Fragment.Profilo_Veterinario_Fragment;
 import com.example.animalapp.Fragment.Veterinario_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.profilo) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new Profilo_Fragment()).addToBackStack(null).commit();
+                    new Profilo_Utente_Fragment()).addToBackStack(null).commit();
             return true;
         }
         if (id == R.id.logout){
