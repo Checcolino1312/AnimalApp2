@@ -4,31 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-
 import com.example.animalapp.Fragment.Home_Ente_Fragment;
 import com.example.animalapp.Fragment.Home_Veterinario_Fragment;
-import com.example.animalapp.Fragment.InCarico_Fragment;
-import com.example.animalapp.Fragment.Veterinario_Fragment;
 
-public class My_Adapter  extends FragmentStateAdapter {
+public class My_Adapter extends FragmentStateAdapter {
 
-    public My_Adapter(@NonNull Home_Ente_Fragment fragmentActivity) {
-        super(fragmentActivity);
+    public My_Adapter(@NonNull Home_Ente_Fragment fragment) {
+        super(fragment);
     }
-    public My_Adapter(@NonNull Home_Veterinario_Fragment fragmentActivity) {
-        super(fragmentActivity);
+
+    public My_Adapter(@NonNull Home_Veterinario_Fragment fragment) {
+        super(fragment);
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position){
+        switch (position) {
             case 0:
-                return new Veterinario_Fragment();
-            case 1 :
-                return new InCarico_Fragment();
+                return new Home_Veterinario_Fragment(); // Sostituisci con il tuo fragment per il veterinario
+            case 1:
+                return new Home_Ente_Fragment(); // Sostituisci con il tuo fragment per l'ente
             default:
-                return new Veterinario_Fragment();
+                return null;
         }
     }
 

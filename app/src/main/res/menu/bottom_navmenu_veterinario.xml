@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/segnalazionevet"
+        android:icon="@drawable/icon_segnalazioni"
+        android:title="@string/segnalazioni" />
+
+    <item
         android:id="@+id/homeVet"
         android:icon="@drawable/ic_home"
-        android:title="@string/homeVet" />
+        android:title="@string/homeVet"
+        android:visible="true" />
 
     <item
         android:id="@+id/inCaricoVet"
