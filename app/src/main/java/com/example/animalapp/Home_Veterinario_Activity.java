@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.animalapp.Fragment.Animali_Veterinario_Fragment;
+import com.example.animalapp.Fragment.Home_Veterinario_Fragment;
 import com.example.animalapp.Fragment.InCarico_Fragment;
 
 
@@ -34,8 +35,8 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
         if(isCustomBackEnabled){
-            if (fragment instanceof Animali_Veterinario_Fragment) {
-                ((Animali_Veterinario_Fragment) fragment).onBackPressed();
+            if (fragment instanceof Home_Veterinario_Fragment) {
+                ((Home_Veterinario_Fragment) fragment).onBackPressed();
             }
 
             if (fragment instanceof Animali_Veterinario_Fragment) {
@@ -62,7 +63,7 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new Animali_Veterinario_Fragment()).commit();
+                new Home_Veterinario_Fragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -70,7 +71,7 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
                 case R.id.homeVet:
-                    selectedFragment= new Animali_Veterinario_Fragment();
+                    selectedFragment= new Home_Veterinario_Fragment();
                     break;
                 case R.id.inCaricoVet:
                     selectedFragment= new InCarico_Fragment();

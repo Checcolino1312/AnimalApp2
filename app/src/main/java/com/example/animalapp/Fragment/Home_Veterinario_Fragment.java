@@ -1,8 +1,10 @@
 package com.example.animalapp.Fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -14,6 +16,7 @@ import com.example.animalapp.Adapter.My_Adapter;
 
 import com.example.animalapp.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home_Veterinario_Fragment extends Fragment {
 
@@ -62,5 +65,25 @@ public class Home_Veterinario_Fragment extends Fragment {
             }
         });
         return inflater.inflate(R.layout.fragment_home_veterinario, container, false);
+    }
+
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+        builder.setMessage("Sei sicuro di voler effettuare il logout?");
+        builder.setPositiveButton("Sì", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Effettua il logout da Firebase
+                FirebaseAuth.getInstance().signOut();
+
+                // Chiudi l'activity o esegui altre azioni di logout se necessario
+                requireActivity().finish();
+            }
+        });
+        builder.setNegativeButton("No", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
