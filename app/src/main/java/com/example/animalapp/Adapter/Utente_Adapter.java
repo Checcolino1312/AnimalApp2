@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animalapp.Model.Utente;
 import com.example.animalapp.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -56,7 +54,7 @@ public class Utente_Adapter extends RecyclerView.Adapter<Utente_Adapter.UtenteVi
         public UtenteViewHolder(@NonNull View itemView){
             super(itemView);
 
-            nomeanimale = itemView.findViewById(R.id.nome);
+            nomeanimale = itemView.findViewById(R.id.nome_animale);
             specieanimale = itemView.findViewById(R.id.specie_animale);
             image_profile = itemView.findViewById(R.id.imageAvatar);
             //btn_follow = itemView.findViewById(R.id.btn_follow);

@@ -25,8 +25,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"
-            app:civ_border_color="@color/main_color"
+            android:src="@drawable/logo"
+            app:civ_border_color="@color/black"
             app:civ_border_width="2dp"
             android:contentDescription="@string/immagine" />
 
@@ -60,7 +60,7 @@
             android:layout_height="46dp"
             android:layout_alignTop="@+id/img1"
             android:layout_alignBottom="@+id/img1"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="@string/follow"
             android:layout_marginStart="184dp"
             android:layout_marginTop="11dp"

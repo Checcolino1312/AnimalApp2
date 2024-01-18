@@ -16,7 +16,6 @@
         android:hint="@string/elencoCure"
         android:padding="14dp"
         android:textAlignment="center"
-
         android:textSize="28sp" />
 
     <androidx.recyclerview.widget.RecyclerView

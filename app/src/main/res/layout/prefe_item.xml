@@ -12,11 +12,11 @@
         android:id="@+id/animali_item"
         android:layout_width="200dp"
         android:layout_height="188dp"
-        android:background="#ABF8D89D"
+        android:background="@color/white"
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/immagine"
+            android:id="@+id/img_dettagli_animale"
             android:layout_width="137dp"
             android:layout_height="109dp"
             android:contentDescription="@string/immagine"
@@ -30,7 +30,7 @@
             android:id="@+id/nomeAnimale"
             android:layout_width="200dp"
             android:layout_height="38dp"
-            android:layout_below="@+id/immagine"
+            android:layout_below="@+id/img_dettagli_animale"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="21dp"
             android:layout_marginBottom="22dp"

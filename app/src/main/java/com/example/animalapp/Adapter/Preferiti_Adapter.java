@@ -1,7 +1,6 @@
 package com.example.animalapp.Adapter;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.animalapp.Model.Animali;
 import com.example.animalapp.Model.Follow;
 import com.example.animalapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -85,7 +77,7 @@ public class Preferiti_Adapter extends RecyclerView.Adapter<Preferiti_Adapter.Pr
 
         public PrefViewHolder(@NonNull View itemView) {
             super(itemView);
-            immagine = itemView.findViewById(R.id.immagine);
+            immagine = itemView.findViewById(R.id.img_dettagli_animale);
             nomeAnimale =  itemView.findViewById(R.id.nomeAnimale);
 
 
