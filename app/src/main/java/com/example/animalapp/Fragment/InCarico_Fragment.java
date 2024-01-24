@@ -95,10 +95,16 @@ public class  InCarico_Fragment extends Fragment {
         mSegnalazioni = new ArrayList<>();
         segnalazioniAdapter = new Segnalazioni_Adapter(this.getContext(), mSegnalazioni);
 
+        Query db = FirebaseDatabase.getInstance().getReference("Segnalazioni/destinatario").orderByChild("destinatario").equalTo(auth.getCurrentUser().getUid());
+        db.addValueEventListener(valueEventListener);
+
         recyclerView.setAdapter(segnalazioniAdapter);
 
-        Query db= FirebaseDatabase.getInstance().getReference("Segnalazioni").orderByChild("idPresaInCarico").equalTo(auth.getCurrentUser().getUid());
+        /*Query db= FirebaseDatabase.getInstance().getReference("Segnalazioni").orderByChild("idPresaInCarico").equalTo(auth.getCurrentUser().getUid());
         db.addValueEventListener(valueEventListener);
+
+         */
+
 
         // Inflate the layout for this fragment
         return view;

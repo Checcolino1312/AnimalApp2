@@ -13,12 +13,15 @@ import com.example.animalapp.Home_Veterinario_Activity;
 import com.google.firebase.auth.FirebaseAuth;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.example.animalapp.Model.Segnalazioni;
@@ -28,13 +31,12 @@ import com.example.animalapp.Recycler_Item_click_Listener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Veterinario_Fragment extends Fragment {
 
@@ -47,7 +49,11 @@ public class Veterinario_Fragment extends Fragment {
     FirebaseAuth auth = FirebaseAuth.getInstance();
     Utente utente;
 
+    private DatabaseReference reffSegnalazioni;
 
+
+
+    private ArrayList<Segnalazioni> segnalazioni;
 
 
 
@@ -85,22 +91,32 @@ public class Veterinario_Fragment extends Fragment {
             ((MainActivity) activity).setCustomBackEnabled(true);
         }
 
+
+
         recyclerView = view.findViewById(R.id.recycler_view_veterinario);
         floatingButtonNuovaSegnalazione = view.findViewById(R.id.btn_nuova_segnalazione);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-        mSegnalazioni = new ArrayList<>();
+/*
+       // mSegnalazioni = new ArrayList<>();
         segnalazioniAdapter = new Segnalazioni_Adapter(this.getContext(), mSegnalazioni);
+
+        segnalazioni = new ArrayList<>();
+
 
         recyclerView.setAdapter(segnalazioniAdapter);
 
-        db= FirebaseDatabase.getInstance();
+ */
+
+        segnalazioni = new ArrayList<>();
+        loadSegnalazioni();
+
+       // db= FirebaseDatabase.getInstance();
 
 
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
+      /*  FirebaseDatabase db = FirebaseDatabase.getInstance();
         Query queryUtente = db.getReference("Users").orderByChild("Id").equalTo(Objects.requireNonNull(auth.getCurrentUser()).getUid());
         queryUtente.addValueEventListener(new ValueEventListener() {
             @Override
@@ -137,6 +153,8 @@ public class Veterinario_Fragment extends Fragment {
 
 
 
+
+       */
 
         return view;
     }
@@ -205,5 +223,66 @@ public class Veterinario_Fragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+
+
+    public void loadSegnalazioni() {
+
+        /* la lista viene pulita poiche altrimenti ogni volta ce si ricarica la pagina
+         *  verrebbero aggiunti gli stessi segalazioni */
+       /* if (!segnalazioni.isEmpty()){
+            segnalazioni.clear();
+        }
+
+        */
+
+        reffSegnalazioni = FirebaseDatabase.getInstance().getReference().child("Segnalazioni");
+
+        reffSegnalazioni.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // this method is call to get the realtime
+                // updates in the data.
+                // this method is called when the data is
+                // changed in our Firebase console.
+                // below line is for getting the data from
+                // snapshot of our database.
+
+                Log.d("seg", snapshot.toString());
+
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Segnalazioni seg = snap.getValue(Segnalazioni.class);
+
+                    segnalazioni.add(seg);
+
+                }
+
+                segnalazioniAdapter = new Segnalazioni_Adapter(getContext(), segnalazioni);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(segnalazioniAdapter);
+
+                // after getting the value we are setting
+                // our value to our text view in below line.
+                //retrieveTV.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive
+                // any error or we are not able to get the data.
+                Toast.makeText(getContext(), "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+       // reffSegnalazioni.addValueEventListener(postListener);
+
+        //homeSwipeRefresh.setRefreshing(false);
+
+
+
 
 }

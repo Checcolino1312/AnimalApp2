@@ -370,6 +370,7 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
                 hashMap.imgSegnalazione = imgPosition;
                 hashMap.lattitudine = latitude;
                 hashMap.longitudine = longitude;
+                hashMap.destinatario = "44rMQIHF92QAId37ZPJmzb2OcfW2";
 
                 /*
                 HashMap<String, Object> hashMap = new HashMap<>();

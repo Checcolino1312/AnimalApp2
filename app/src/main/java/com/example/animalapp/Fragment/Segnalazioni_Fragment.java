@@ -48,7 +48,7 @@ public class Segnalazioni_Fragment extends Fragment {
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
 
-    Segnalazioni_Fragment(){
+  Segnalazioni_Fragment(){
 
     }
 
@@ -107,6 +107,7 @@ public class Segnalazioni_Fragment extends Fragment {
                 Glide.with(imgSegnalzioni.getContext()).load(uri).circleCrop().into(imgSegnalzioni);
             }
         });*/
+
 
 
         // Inflate the layout for this fragment
