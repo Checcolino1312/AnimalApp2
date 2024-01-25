@@ -111,7 +111,7 @@ public class Veterinario_Fragment extends Fragment {
  */
 
         segnalazioni = new ArrayList<>();
-        loadSegnalazioni();
+        //loadSegnalazioni();
 
        // db= FirebaseDatabase.getInstance();
 
@@ -182,7 +182,7 @@ public class Veterinario_Fragment extends Fragment {
                         //rendiInvisibileView();
                         Segnalazioni tmp = mSegnalazioni.get(position);
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, new Segnalazioni_Fragment(tmp,utente)).addToBackStack(null).commit();
+                                .replace(R.id.fragment_container, new DettagliSegnalazioni_Fragment(tmp,utente)).addToBackStack(null).commit();
 
                     }
 

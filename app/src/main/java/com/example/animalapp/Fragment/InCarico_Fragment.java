@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,12 +46,16 @@ public class  InCarico_Fragment extends Fragment {
     private Utente_Adapter adapter;
     DatabaseReference dbUtente;
 
+    private ArrayList<Segnalazioni> segnalazioni;
+
     //SEGNALAZIONI ADAPTER
     private Segnalazioni_Adapter segnalazioniAdapter;
     com.getbase.floatingactionbutton.FloatingActionButton floatingButtonNuovaSegnalazione;
     private List<Segnalazioni> mSegnalazioni;
     DatabaseReference db;
     FirebaseAuth auth = FirebaseAuth.getInstance();
+
+    private RecyclerView elencosegnalazioni;
 
 
     ValueEventListener valueEventListener = new ValueEventListener() {
@@ -92,18 +97,30 @@ public class  InCarico_Fragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-        mSegnalazioni = new ArrayList<>();
+       /* mSegnalazioni = new ArrayList<>();
         segnalazioniAdapter = new Segnalazioni_Adapter(this.getContext(), mSegnalazioni);
 
         Query db = FirebaseDatabase.getInstance().getReference("Segnalazioni/destinatario").orderByChild("destinatario").equalTo(auth.getCurrentUser().getUid());
         db.addValueEventListener(valueEventListener);
 
-        recyclerView.setAdapter(segnalazioniAdapter);
+        */
+
+       // recyclerView.setAdapter(segnalazioniAdapter);
 
         /*Query db= FirebaseDatabase.getInstance().getReference("Segnalazioni").orderByChild("idPresaInCarico").equalTo(auth.getCurrentUser().getUid());
         db.addValueEventListener(valueEventListener);
 
          */
+
+        segnalazioni = new ArrayList<>();
+        //loadSegnalazioni();
+
+        inflater.inflate(R.layout.fragment_in_carico_veterinario, container, false);
+        elencosegnalazioni = view.findViewById(R.id.recycler_view_incarico);
+        GridLayoutManager layoutManager = new GridLayoutManager(this.getContext(), 2);
+        elencosegnalazioni.setLayoutManager(layoutManager);
+
+
 
 
         // Inflate the layout for this fragment

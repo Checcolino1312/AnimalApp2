@@ -53,6 +53,7 @@
     <string name="btn_follow" translatable="false">Button</string>
     <string name="segui">Segui</string>
     <string name="follow">Segui</string>
+    <string name="prendi_in_carico">In carico</string>
     <string name="email" translatable="false">Email</string>
     <string name="password" translatable="false">Password</string>
     <string name="se_non_sei_registrato_clicca_qui">Se non sei registrato, Clicca qui!</string>

@@ -17,6 +17,7 @@ import com.example.animalapp.Fragment.InCarico_Fragment;
 
 import com.example.animalapp.Fragment.Profilo_Fragment;
 import com.example.animalapp.Fragment.Profilo_Veterinario_Fragment;
+import com.example.animalapp.Fragment.Segnalazioni_Fragment;
 import com.example.animalapp.Fragment.Veterinario_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,7 +65,7 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new Veterinario_Fragment()).commit();
+                new Segnalazioni_Fragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,7 +73,7 @@ public class Home_Veterinario_Activity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
                 case R.id.homeVet:
-                    selectedFragment= new Veterinario_Fragment();
+                    selectedFragment= new Segnalazioni_Fragment();
                     break;
                 case R.id.inCaricoVet:
                     selectedFragment= new InCarico_Fragment();

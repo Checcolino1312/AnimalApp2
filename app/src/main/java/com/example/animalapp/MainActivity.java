@@ -10,6 +10,7 @@ import com.example.animalapp.Fragment.Preferiti_Fragment;
 import com.example.animalapp.Fragment.Profilo_Fragment;
 import com.example.animalapp.Fragment.Profilo_Utente_Fragment;
 import com.example.animalapp.Fragment.Profilo_Veterinario_Fragment;
+import com.example.animalapp.Fragment.Segnalazioni_Fragment;
 import com.example.animalapp.Fragment.Veterinario_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = item -> {
         switch (item.getItemId()){
             case R.id.segnalazioni:
-                selectedFragment= new Veterinario_Fragment();
+                selectedFragment= new Segnalazioni_Fragment();
                 break;
             case R.id.incarico_utente:
                 selectedFragment= new InCarico_Fragment();
