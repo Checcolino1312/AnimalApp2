@@ -366,11 +366,11 @@ public class Aggiungi_Segnalazione_Fragment extends Fragment {
                 hashMap.destinatarioUtente = destinatarioUtente;
                 hashMap.idMittente = userid;
                 hashMap.presaInCarico = "no";
-                //hashMap.idPresaInCarico = "";
+                hashMap.idPresaInCarico = "no";
                 hashMap.imgSegnalazione = imgPosition;
                 hashMap.lattitudine = latitude;
                 hashMap.longitudine = longitude;
-                //hashMap.destinatario = "";
+                hashMap.destinatario = "44rMQIHF92QAId37ZPJmzb2OcfW2";
 
                 /*
                 HashMap<String, Object> hashMap = new HashMap<>();

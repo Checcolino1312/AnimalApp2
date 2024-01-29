@@ -37,7 +37,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -57,8 +56,6 @@ public class Segnalazioni_Fragment extends Fragment {
     Utente utente;
 
     private RecyclerView segnalazioniRecyclerView;
-
-    FloatingActionButton floatingButtonNuovaSegnalazione;
     private Segnalazioni_Adapter segnalazioniAdapter;
     private List<Segnalazioni> mSegnalazioni;
 
@@ -109,7 +106,7 @@ public class Segnalazioni_Fragment extends Fragment {
         }
 
         segnalazioniRecyclerView = view.findViewById(R.id.recycler_view_veterinario);
-        floatingButtonNuovaSegnalazione = view.findViewById(R.id.btn_nuova_segnalazione);
+        //floatingButtonNuovaSegnalazione = view.findViewById(R.id.btn_nuova_segnalazione);
 
         segnalazioniRecyclerView.setHasFixedSize(true);
         segnalazioniRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -124,27 +121,38 @@ public class Segnalazioni_Fragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        //BOTTONE NUOVA SEGNALAZIONE
-        floatingButtonNuovaSegnalazione.setOnClickListener(new View.OnClickListener() {
+        /*button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //rendiInvisibileView();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new Aggiungi_Segnalazione_Fragment(utente)).addToBackStack(null).commit();
-
-
+                segnalazioni.presaInCarico="si";
+                segnalazioni.idPresaInCarico= auth.getCurrentUser().getUid();
+                reference.child("Segnalazioni").child(segnalazioni.id).setValue(segnalazioni).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        switch (utente.TipoUtente){
+                            case "EntePubblico":
+                                startActivity(new Intent(view.getContext(), Home_Ente_Activity.class));
+                                break;
+                            case "Utente Amico":
+                                startActivity(new Intent(view.getContext(), MainActivity.class));
+                                break;
+                            case "Veterinario":
+                                startActivity(new Intent(view.getContext(), Home_Veterinario_Activity.class));
+                                break;
+                        }
+                    }
+                });
             }
         });
 
-        //CLICK ITEM RECYCLERVIEW
-        segnalazioniRecyclerView.addOnItemTouchListener(
+         */
+
+      /*  segnalazioniRecyclerView.addOnItemTouchListener(
                 new Recycler_Item_click_Listener(getContext(), segnalazioniRecyclerView ,new Recycler_Item_click_Listener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        //rendiInvisibileView();
-                        Segnalazioni tmp = mSegnalazioni.get(position);
+                        Segnalazioni tmp = listAnimal.get(position);
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, new DettagliSegnalazioni_Fragment(tmp,utente)).addToBackStack(null).commit();
+                                .replace(R.id.fragment_container, new Dettagli_Animale(tmp)).addToBackStack(null).commit();
 
                     }
 
@@ -154,6 +162,7 @@ public class Segnalazioni_Fragment extends Fragment {
                 })
         );
 
+       */
     }
 
     @Override

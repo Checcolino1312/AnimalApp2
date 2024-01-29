@@ -31,7 +31,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adapter.SegnalazioniViewHolder> {
     final private Context mCtx;
@@ -67,45 +66,48 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
 
 
 
-       if(segnalazioni.presaInCarico.equals("si")){
+    /*    if(segnalazioni.destinatario.equals(firebaseUser.getUid())){
             // Se l'animale appartiene al proprietario, rendi il pulsante invisibile
-            holder.btn_follow.setVisibility(View.GONE);
+            holder.btn_follow.setVisibility(View.INVISIBLE);
         }else{
             holder.btn_follow.setVisibility(View.VISIBLE);
         }
 
-
-
+     */
+        holder.btn_follow.setVisibility(View.VISIBLE);
         holder.descrizione.setText(segnalazioni.descrizione);
         holder.tipologiaSegnalazione.setText(segnalazioni.tipologiaSegnalazione);
         trovaNomeCognomeUtente(segnalazioni.idMittente, holder.mittente);
 
+        isFollowing(segnalazioni.id, holder.btn_follow);
 
-
-        Log.d("segnalazioni", segnalazioni.presaInCarico);
+        Log.d("segnalazioni", segnalazioni.getId());
 
         //following tiene traccia degli animali che l'utente sta seguendo
         //followers tiene traccia degli utenti che seguono l'animale
-        SegnalazioniViewHolder.btn_follow.setOnClickListener(view -> {
+        holder.btn_follow.setOnClickListener(view -> {
             if(segnalazioni.presaInCarico.equals("no")){
-
-
 
                 FirebaseDatabase.getInstance().getReference().child("Follow").setValue(firebaseUser.getUid());
 
                 FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid()).child("destinatario").setValue(firebaseUser.getUid());
-                FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(firebaseUser.getUid()).child("idPresaInCarico").setValue(firebaseUser.getUid());
-
 
 
                 FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(segnalazioni.getId()).child("destinatario").setValue(firebaseUser.getUid());
-
-                FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(segnalazioni.getId()).child("presaInCarico").setValue("si");
 
               /*  FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
                         .child("following").child(segnalazioni.getDestinatario()).child("id").setValue(segnalazioni.destinatario);
                 FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
                         .child("following").child(segnalazioni.destinatario).child("nome").setValue(segnalazioni.descrizione);
+
+               */
+
+            } else {
+              /*  FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(segnalazioni.destinatario).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
+                        .child("following").child(segnalazioni.destinatario).child("nome").removeValue();
+
 
                */
 
@@ -174,8 +176,8 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
     }
 
     private void isFollowing(String id, Button button){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
-                .child("Segnalazioni").child("destinatario");
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://ioandroid-57364-default-rtdb.firebaseio.com/").getReference()
+                .child("Follow").child(firebaseUser.getUid()).child("following");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

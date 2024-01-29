@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import com.example.animalapp.Adapter.InCarico_Adapter;
+import com.example.animalapp.Adapter.Segnalazioni_Adapter;
 import com.example.animalapp.Adapter.Utente_Adapter;
 import com.example.animalapp.Home_Ente_Activity;
 import com.example.animalapp.Home_Veterinario_Activity;
@@ -13,7 +13,6 @@ import com.example.animalapp.Model.Animali;
 import com.example.animalapp.Model.Segnalazioni;
 import com.example.animalapp.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,27 +20,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
+
+
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class  InCarico_Fragment extends Fragment {
 
@@ -49,23 +44,15 @@ public class  InCarico_Fragment extends Fragment {
     //ANIMALE ADAPTER
     private List<Animali> mUtente;
     private Utente_Adapter adapter;
-
-    FirebaseUser firebaseUser;
     DatabaseReference dbUtente;
 
-    CoordinatorLayout coordinatorLayout;
-
-    TextView nullTextView;
-
-    private ArrayList<Segnalazioni> segnalazionis;
+    private ArrayList<Segnalazioni> segnalazioni;
 
     //SEGNALAZIONI ADAPTER
-    private InCarico_Adapter segnalazioniAdapter;
+    private Segnalazioni_Adapter segnalazioniAdapter;
     com.getbase.floatingactionbutton.FloatingActionButton floatingButtonNuovaSegnalazione;
     private List<Segnalazioni> mSegnalazioni;
     DatabaseReference db;
-    private DatabaseReference reffSegnalazioni;
-
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
     private RecyclerView elencosegnalazioni;
@@ -109,8 +96,6 @@ public class  InCarico_Fragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        nullTextView = view.findViewById(R.id.textnull);
-
 
        /* mSegnalazioni = new ArrayList<>();
         segnalazioniAdapter = new Segnalazioni_Adapter(this.getContext(), mSegnalazioni);
@@ -127,8 +112,8 @@ public class  InCarico_Fragment extends Fragment {
 
          */
 
-        segnalazionis = new ArrayList<>();
-        loadSegnalazioni();
+        segnalazioni = new ArrayList<>();
+        //loadSegnalazioni();
 
         inflater.inflate(R.layout.fragment_in_carico_veterinario, container, false);
         elencosegnalazioni = view.findViewById(R.id.recycler_view_incarico);
@@ -162,60 +147,5 @@ public class  InCarico_Fragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-
-    public void loadSegnalazioni() {
-
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        /* la lista viene pulita poiche altrimenti ogni volta ce si ricarica la pagina
-         *  verrebbero aggiunti gli stessi segalazioni */
-       /* if (!segnalazioni.isEmpty()){
-            segnalazioni.clear();
-        }
-
-        */
-
-        reffSegnalazioni = FirebaseDatabase.getInstance().getReference().child("Segnalazioni");
-
-        reffSegnalazioni.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snap : snapshot.getChildren()) {
-                    Segnalazioni segn = snap.getValue(Segnalazioni.class);
-
-                    if ((segn.destinatario != null)){
-                        if (segn.destinatario.equals(firebaseUser.getUid())){
-                            segnalazionis.add(segn);
-                            segnalazioniAdapter = new InCarico_Adapter(getContext(), segnalazionis);
-                            elencosegnalazioni.setLayoutManager(new LinearLayoutManager(getActivity()));
-                            elencosegnalazioni.setItemAnimator(new DefaultItemAnimator());
-                            elencosegnalazioni.setAdapter(segnalazioniAdapter);
-                            elencosegnalazioni.setAdapter(segnalazioniAdapter);
-                        }
-                        else {
-
-                            nullTextView.setVisibility(View.VISIBLE);
-                            nullTextView.setText("Non ci sono segnalazioni in carico");
-
-                        }
-
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
-                Toast.makeText(getContext(), "Fail to get data.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-
-
 }
 

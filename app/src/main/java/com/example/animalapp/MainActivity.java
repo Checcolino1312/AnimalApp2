@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView=findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new Segnalazioni_Fragment()).commit();
+                new Veterinario_Fragment()).commit();
     }
 
     @Override

@@ -14,7 +14,6 @@ import com.example.animalapp.Fragment.Animali_Veterinario_Fragment;
 
 import com.example.animalapp.Fragment.Home_Ente_Fragment;
 import com.example.animalapp.Fragment.Profilo_Ente_Fragment;
-import com.example.animalapp.Fragment.Segnalazioni_Fragment;
 import com.example.animalapp.R;
 import com.example.animalapp.Fragment.InCarico_Fragment;
 import com.example.animalapp.Fragment.Profilo_Fragment;
@@ -63,7 +62,7 @@ public class Home_Ente_Activity extends AppCompatActivity  {
     private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner = item -> {
         switch (item.getItemId()){
             case R.id.homeEnte:
-                selectedFragment= new Segnalazioni_Fragment();
+                selectedFragment= new Animali_Veterinario_Fragment();
                 break;
             case R.id.inCarico:
                 selectedFragment= new InCarico_Fragment();
@@ -93,7 +92,7 @@ public class Home_Ente_Activity extends AppCompatActivity  {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new Segnalazioni_Fragment()).commit();
+                new Animali_Veterinario_Fragment()).commit();
 
 
     }
