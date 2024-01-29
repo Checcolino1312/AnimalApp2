@@ -1,7 +1,7 @@
 package com.example.animalapp.Adapter;
 
 import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.animalapp.Model.Animali;
 import com.example.animalapp.Model.Segnalazioni;
 import com.example.animalapp.Model.Utente;
 import com.example.animalapp.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,24 +27,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adapter.SegnalazioniViewHolder> {
+public class InCarico_Adapter extends RecyclerView.Adapter<InCarico_Adapter.SegnalazioniViewHolder> {
     final private Context mCtx;
     final private List<Segnalazioni> segnalazioniList;
     static Button btn_follow;
 
     FirebaseUser firebaseUser;
+    CoordinatorLayout coordinatorLayout;
+
+
 
     Utente utente;
 
 
 
-    public Segnalazioni_Adapter(Context mCtx, List<Segnalazioni> segnalazioniList){
+    public InCarico_Adapter(Context mCtx, List<Segnalazioni> segnalazioniList){
         this.mCtx = mCtx;
         this.segnalazioniList = segnalazioniList;
     }
@@ -52,7 +53,7 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
     @NonNull
     @Override
     public SegnalazioniViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.segnalazioni_item,parent,false);
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.incarico_item,parent,false);
         return new SegnalazioniViewHolder(view);
     }
 
@@ -66,16 +67,6 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
         utente = new Utente();
 
 
-        if(segnalazioni.presaInCarico.equals("si")){
-            // Se l'animale appartiene al proprietario, rendi il pulsante invisibile
-            SegnalazioniViewHolder.btn_follow.setVisibility(View.GONE);
-        }else{
-            SegnalazioniViewHolder.btn_follow.setVisibility(View.VISIBLE);
-        }
-
-
-
-
 
 
 
@@ -84,47 +75,8 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
         trovaNomeCognomeUtente(segnalazioni.idMittente, holder.mittente);
 
 
+        Log.d("segnalazioni", segnalazioni.getId());
 
-
-
-        String count = String.valueOf(getItemCount());
-        Log.d("count", count);
-
-        //following tiene traccia degli animali che l'utente sta seguendo
-        //followers tiene traccia degli utenti che seguono l'animale
-        SegnalazioniViewHolder.btn_follow.setOnClickListener(view -> {
-            if(segnalazioni.presaInCarico.equals("no")){
-
-
-
-                FirebaseDatabase.getInstance().getReference().child("Follow").setValue(firebaseUser.getUid());
-
-                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid()).child("destinatario").setValue(firebaseUser.getUid());
-                FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(firebaseUser.getUid()).child("idPresaInCarico").setValue(firebaseUser.getUid());
-
-
-
-                FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(segnalazioni.getId()).child("destinatario").setValue(firebaseUser.getUid());
-
-                FirebaseDatabase.getInstance().getReference().child("Segnalazioni").child(segnalazioni.getId()).child("presaInCarico").setValue("si");
-
-              /*  FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                        .child("following").child(segnalazioni.getDestinatario()).child("id").setValue(segnalazioni.destinatario);
-                FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                        .child("following").child(segnalazioni.destinatario).child("nome").setValue(segnalazioni.descrizione);
-
-               */
-
-            }
-
-        });
-
-
-      /*  StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(segnalazioni.imgSegnalazione);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
-                .load(uri).circleCrop().into(holder.img));
-
-       */
 
     }
 
@@ -180,25 +132,5 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
 
     }
 
-    private void isFollowing(String id, Button button){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
-                .child("Segnalazioni").child("destinatario");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(id).exists()){
-                    button.setText(R.string.segnalazioni_prese_in_carico);
-                } else {
-                    button.setText(R.string.inCarico);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
 }

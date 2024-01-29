@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -56,6 +57,8 @@ public class Segnalazioni_Fragment extends Fragment {
     Utente utente;
 
     private RecyclerView segnalazioniRecyclerView;
+
+    FloatingActionButton floatingButtonNuovaSegnalazione;
     private Segnalazioni_Adapter segnalazioniAdapter;
     private List<Segnalazioni> mSegnalazioni;
 
@@ -73,7 +76,7 @@ public class Segnalazioni_Fragment extends Fragment {
     //private Preferiti_Adapter prefAdapter;
 
 
-  public Segnalazioni_Fragment(){
+    public Segnalazioni_Fragment(){
 
     }
 
@@ -106,7 +109,7 @@ public class Segnalazioni_Fragment extends Fragment {
         }
 
         segnalazioniRecyclerView = view.findViewById(R.id.recycler_view_veterinario);
-        //floatingButtonNuovaSegnalazione = view.findViewById(R.id.btn_nuova_segnalazione);
+        floatingButtonNuovaSegnalazione = view.findViewById(R.id.btn_nuova_segnalazione);
 
         segnalazioniRecyclerView.setHasFixedSize(true);
         segnalazioniRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -121,38 +124,27 @@ public class Segnalazioni_Fragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        /*button.setOnClickListener(new View.OnClickListener() {
+
+        //BOTTONE NUOVA SEGNALAZIONE
+        floatingButtonNuovaSegnalazione.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                segnalazioni.presaInCarico="si";
-                segnalazioni.idPresaInCarico= auth.getCurrentUser().getUid();
-                reference.child("Segnalazioni").child(segnalazioni.id).setValue(segnalazioni).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        switch (utente.TipoUtente){
-                            case "EntePubblico":
-                                startActivity(new Intent(view.getContext(), Home_Ente_Activity.class));
-                                break;
-                            case "Utente Amico":
-                                startActivity(new Intent(view.getContext(), MainActivity.class));
-                                break;
-                            case "Veterinario":
-                                startActivity(new Intent(view.getContext(), Home_Veterinario_Activity.class));
-                                break;
-                        }
-                    }
-                });
+                //rendiInvisibileView();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new Aggiungi_Segnalazione_Fragment(utente)).addToBackStack(null).commit();
+
+
             }
         });
 
-         */
-
-      /*  segnalazioniRecyclerView.addOnItemTouchListener(
+        //CLICK ITEM RECYCLERVIEW
+     /*   segnalazioniRecyclerView.addOnItemTouchListener(
                 new Recycler_Item_click_Listener(getContext(), segnalazioniRecyclerView ,new Recycler_Item_click_Listener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        Segnalazioni tmp = listAnimal.get(position);
+                        //rendiInvisibileView();
+                        Segnalazioni tmp = mSegnalazioni.get(position);
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, new Dettagli_Animale(tmp)).addToBackStack(null).commit();
+                                .replace(R.id.fragment_container, new DettagliSegnalazioni_Fragment(tmp,utente)).addToBackStack(null).commit();
 
                     }
 
@@ -162,7 +154,8 @@ public class Segnalazioni_Fragment extends Fragment {
                 })
         );
 
-       */
+      */
+
     }
 
     @Override
@@ -192,11 +185,11 @@ public class Segnalazioni_Fragment extends Fragment {
 
         /* la lista viene pulita poiche altrimenti ogni volta ce si ricarica la pagina
          *  verrebbero aggiunti gli stessi segalazioni */
-       /* if (!segnalazioni.isEmpty()){
+        if (!segnalazioni.isEmpty()){
             segnalazioni.clear();
         }
 
-        */
+
 
         reffSegnalazioni = FirebaseDatabase.getInstance().getReference().child("Segnalazioni");
 
@@ -217,12 +210,15 @@ public class Segnalazioni_Fragment extends Fragment {
 
                     segnalazioni.add(seg);
 
+
                 }
+
 
                 segnalazioniAdapter = new Segnalazioni_Adapter(getContext(), segnalazioni);
                 segnalazioniRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 segnalazioniRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 segnalazioniRecyclerView.setAdapter(segnalazioniAdapter);
+
 
 
 
