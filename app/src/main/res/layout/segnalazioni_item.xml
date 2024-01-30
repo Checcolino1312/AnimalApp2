@@ -59,17 +59,17 @@
 
         <Button
             android:id="@+id/follow_segnalazioni"
-            android:backgroundTint="@color/main_color"
             android:layout_width="166dp"
             android:layout_height="46dp"
             android:layout_alignTop="@+id/img1"
             android:layout_alignBottom="@+id/img1"
-            android:textColor="@color/black"
-            android:text="@string/inCarico"
-            android:layout_marginStart="184dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginBottom="23dp"
+            android:layout_marginStart="191dp"
+            android:layout_marginTop="-9dp"
+            android:layout_marginBottom="43dp"
             android:layout_toEndOf="@+id/img1"
+            android:backgroundTint="@color/main_color"
+            android:text="@string/inCarico"
+            android:textColor="@color/black"
             android:textSize="15sp"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
