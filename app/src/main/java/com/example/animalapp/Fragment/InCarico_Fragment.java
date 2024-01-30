@@ -196,8 +196,10 @@ public class  InCarico_Fragment extends Fragment {
                         }
                         else {
 
-                            nullTextView.setVisibility(View.VISIBLE);
-                            nullTextView.setText("Non ci sono segnalazioni in carico");
+                            if ((segn.destinatario == null)) {
+                                nullTextView.setVisibility(View.VISIBLE);
+                                nullTextView.setText("Non ci sono segnalazioni in carico");
+                            }
 
                         }
 
