@@ -66,9 +66,11 @@ public class Segnalazioni_Adapter extends RecyclerView.Adapter<Segnalazioni_Adap
         utente = new Utente();
 
 
-        if(segnalazioni.presaInCarico.equals("si")){
+        if("si".equals(segnalazioni.presaInCarico)){
+            String count = String.valueOf(getItemCount());
+            Log.d("entrati", count);
             // Se l'animale appartiene al proprietario, rendi il pulsante invisibile
-            SegnalazioniViewHolder.btn_follow.setVisibility(View.GONE);
+            SegnalazioniViewHolder.btn_follow.setVisibility(View.INVISIBLE);
         }else{
             SegnalazioniViewHolder.btn_follow.setVisibility(View.VISIBLE);
         }
