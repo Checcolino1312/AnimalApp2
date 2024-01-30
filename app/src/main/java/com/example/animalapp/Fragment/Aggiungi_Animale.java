@@ -213,8 +213,8 @@ public class Aggiungi_Animale extends Fragment {
 
     public void defImg(String spece){
         switch (spece){
-            case "Cane": immaginedacaricare.setImageResource(R.drawable.foca);
-                imgPosition ="gs://ioandroid-57364.appspot.com/images/foca.png";
+            case "Cane": immaginedacaricare.setImageResource(R.drawable.b);
+                imgPosition ="gs://ioandroid-57364.appspot.com/images";
                 break;
             case "Gatto":
                 immaginedacaricare.setImageResource(R.drawable.gatto);

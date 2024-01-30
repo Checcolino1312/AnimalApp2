@@ -140,8 +140,8 @@
         <item>Femmina</item>
     </string-array>
     <string-array name="sterilizzazioneanimale">
-        <item>Effettuata</item>
-        <item>Non effettuata</item>
+        <item>Sterilizzato</item>
+        <item>Non sterilizzato</item>
     </string-array>
     <string-array name="statosalute">
         <item>Ottimo</item>
