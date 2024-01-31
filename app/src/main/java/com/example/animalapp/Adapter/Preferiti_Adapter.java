@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.animalapp.Model.Animali;
 import com.example.animalapp.Model.Follow;
 import com.example.animalapp.R;
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -54,11 +57,10 @@ public class Preferiti_Adapter extends RecyclerView.Adapter<Preferiti_Adapter.Pr
         reference.child("Animals").child(f.id).get().addOnCompleteListener(task -> {
             animal = task.getResult().getValue(Animali.class);
 
-           /* StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
+          StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animal.imgAnimale);
             storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.immagine.getContext())
                     .load(uri).circleCrop().into(holder.immagine));
 
-            */
         });
 
         holder.nomeAnimale.setText(f.nome);

@@ -24,6 +24,7 @@
             android:layout_centerHorizontal="true"
             android:paddingEnd="12dp"
             app:civ_border_color="#FF000000"
+            android:src="@drawable/logo"
             app:civ_border_width="2dp" />
 
         <TextView

@@ -89,11 +89,9 @@ public class Animali_Adapter extends RecyclerView.Adapter<Animali_Adapter.Animal
             }
         });
 
-       /* StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animali.imgAnimale);
+       StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(animali.imgAnimale);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(holder.img.getContext())
                 .load(uri).into(holder.img));
-
-        */
 
     }
 
