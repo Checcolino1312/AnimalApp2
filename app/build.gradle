@@ -15,6 +15,17 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("C:\\Users\\giupy\\AndroidStudioProjects\\AnimalApp-master\\AnimalApp2\\build\\key.jks")
+            storePassword "keykey123"
+            keyAlias "key0"
+            keyPassword "keykey123"
+            v2SigningEnabled false
+        }
     }
 
     buildTypes {
